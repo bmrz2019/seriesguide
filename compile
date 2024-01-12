@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# grep -l  'maxLines=\"1'   *
+# grep -l  'maxLines=\"1'   *
+#  for i in `grep -l  'maxLines=\"2'   *`; do echo $i; perl -pi -e 's/maxLines=\"2/maxLines=\"4/g' $i ; done
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+rm ./app/build -fr 
+./gradlew assembleDebug  -DskipFormatKtlint=true
+adb install app/build/outputs/apk/debug/app-debug.apk
